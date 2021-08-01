@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Epam_Task_3.Interfaces
 {
-    internal interface IIngredients
-    { 
-        
+    internal interface IIngredient
+    {
+        public double TotalPrice();
     }
 }
