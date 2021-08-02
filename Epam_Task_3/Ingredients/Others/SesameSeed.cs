@@ -2,6 +2,9 @@
 
 namespace Epam_Task_3.Ingredients
 {
+    /// <summary>
+    /// This class describing ingredient - sesame seed
+    /// </summary>
     internal class SesameSeed : IIngredient
     {
         // Measured in tablespoon
@@ -11,11 +14,19 @@ namespace Epam_Task_3.Ingredients
         // Quantity tablespoon per one kilogram
         public static int TablespoonPerKg = 67;
 
+        /// <summary>
+        /// Constructor for initialize ingredient quantity
+        /// </summary>
+        /// <param name="quantity">ingredient quantity</param>
         public SesameSeed(int quantity)
         {
             Quantity = quantity;
         }
 
+        /// <summary>
+        /// Method for getting ingredient total price
+        /// </summary>
+        /// <returns>total price</returns>
         public double TotalPrice()
         {
             var totalPrice = Quantity * PricePerKg / TablespoonPerKg;

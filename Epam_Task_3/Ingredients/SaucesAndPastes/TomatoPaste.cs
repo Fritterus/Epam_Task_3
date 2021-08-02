@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Epam_Task_3.Ingredients.SaucesAndPastes
 {
+    /// <summary>
+    /// This class describing ingredient - tomato paste
+    /// </summary>
     internal class TomatoPaste : IIngredient
     {
         // Measured in tablespoons
@@ -14,11 +17,19 @@ namespace Epam_Task_3.Ingredients.SaucesAndPastes
         // Quantity tablespoon per one liter
         public static int TablespoonPerLiter = 67;
 
+        /// <summary>
+        /// Constructor for initialize ingredient quantity
+        /// </summary>
+        /// <param name="quantity">ingredient quantity</param>
         public TomatoPaste(int quantity)
         {
             Quantity = quantity;
         }
 
+        /// <summary>
+        /// Method for getting ingredient total price
+        /// </summary>
+        /// <returns>total price</returns>
         public double TotalPrice()
         {
             var totalPrice = Quantity * PricePerLiter / TablespoonPerLiter;

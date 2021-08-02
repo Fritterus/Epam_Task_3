@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Epam_Task_3.Ingredients.Oils
 {
+    /// <summary>
+    /// This class describing ingredient - olive oil
+    /// </summary>
     internal class OliveOil : IIngredient
     {
         // Measured in tablespoons
@@ -14,11 +17,19 @@ namespace Epam_Task_3.Ingredients.Oils
         // Quantity tablespoon per one liter
         public static int TablespoonPerLiter = 67;
 
+        /// <summary>
+        /// Constructor for initialize ingredient quantity
+        /// </summary>
+        /// <param name="quantity">ingredient quantity</param>
         public OliveOil(int quantity)
         {
             Quantity = quantity;
         }
 
+        /// <summary>
+        /// Method for getting ingredient total price
+        /// </summary>
+        /// <returns>total price</returns>
         public double TotalPrice()
         {
             var totalPrice = Quantity * PricePerLiter / TablespoonPerLiter;

@@ -5,16 +5,27 @@ using System.Text;
 
 namespace Epam_Task_3.Ingredients.Vegetables
 {
+    /// <summary>
+    /// This class describing ingredient - garlic
+    /// </summary>
     internal class Garlic : IIngredient
     {
         public int QuantityCloves;
         public double PricePerPiece = 0.4;
 
+        /// <summary>
+        /// Constructor for initialize ingredient quantity
+        /// </summary>
+        /// <param name="quantity">ingredient quantity</param>
         public Garlic(int quantityCloves)
         {
             QuantityCloves = quantityCloves;
         }
 
+        /// <summary>
+        /// Method for getting ingredient total price
+        /// </summary>
+        /// <returns>total price</returns>
         public double TotalPrice()
         {
             var totalPrice = QuantityCloves * PricePerPiece;

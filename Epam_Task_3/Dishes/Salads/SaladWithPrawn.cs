@@ -6,12 +6,17 @@ using Epam_Task_3.Ingredients.Vegetables;
 using Epam_Task_3.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Epam_Task_3.Dishes.Salads
 {
+    /// <summary>
+    /// This class describing dish - caesar salad
+    /// </summary>
     internal class SaladWithPrawn : IDish
     {
+        /// <summary>
+        /// Field list of ingredient which are necessary for this dish
+        /// </summary>
         public List<IIngredient> IngredientsList = new List<IIngredient>()
         {
             new Tomato(3),
@@ -23,6 +28,10 @@ namespace Epam_Task_3.Dishes.Salads
             new OliveOil(2),
         };
 
+        /// <summary>
+        /// Method for getting dish price
+        /// </summary>
+        /// <returns>full price of the dish</returns>
         public double GetPrice()
         {
             double price = 0;

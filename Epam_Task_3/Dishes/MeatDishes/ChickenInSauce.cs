@@ -7,8 +7,14 @@ using System.Collections.Generic;
 
 namespace Epam_Task_3.Dishes.MeatDishes
 {
+    /// <summary>
+    /// This class describing dish - chicken in sauce
+    /// </summary>
     internal class ChickenInSauce : IDish
     {
+        /// <summary>
+        /// Field list of ingredient which are necessary for this dish
+        /// </summary>
         public List<IIngredient> IngredientsList = new List<IIngredient>()
         {
             new ChickenFillet(500),
@@ -21,6 +27,10 @@ namespace Epam_Task_3.Dishes.MeatDishes
             new Tomato(2),
         };
 
+        /// <summary>
+        /// Method for getting dish price
+        /// </summary>
+        /// <returns>full price of the dish</returns>
         public double GetPrice()
         {
             double price = 0;

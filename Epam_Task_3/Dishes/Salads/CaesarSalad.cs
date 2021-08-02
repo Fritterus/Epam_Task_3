@@ -6,8 +6,14 @@ using System.Collections.Generic;
 
 namespace Epam_Task_3.Dishes.Salads
 {
+    /// <summary>
+    /// This class describing dish - caesar salad
+    /// </summary>
     internal class CaesarSalad : IDish
     {
+        /// <summary>
+        /// Field list of ingredient which are necessary for this dish
+        /// </summary>
         public List<IIngredient> IngredientsList = new List<IIngredient>()
         {
             new ChickenFillet(300),
@@ -17,6 +23,10 @@ namespace Epam_Task_3.Dishes.Salads
             new WhiteBread(6),
         };
 
+        /// <summary>
+        /// Method for getting dish price
+        /// </summary>
+        /// <returns>full price of the dish</returns>
         public double GetPrice()
         {
             double price = 0;
