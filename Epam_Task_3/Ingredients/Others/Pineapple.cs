@@ -8,7 +8,7 @@ namespace Epam_Task_3.Ingredients
     internal class Pineapple : IIngredient
     {
         public int Quantity;
-        public double PricePerPiece;
+        public double PricePerPiece = 3.2;
 
         public Pineapple(int quantity)
         {

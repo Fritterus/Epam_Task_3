@@ -12,8 +12,7 @@ namespace Epam_Task_3.Dishes.Salads
 {
     internal class SaladWithPrawn : IDish
     {
-        public double Price;
-        public List<IIngredient> IngredientsList => new List<IIngredient>()
+        public List<IIngredient> IngredientsList = new List<IIngredient>()
         {
             new Tomato(3),
             new KingPrawns(300),
@@ -24,12 +23,24 @@ namespace Epam_Task_3.Dishes.Salads
             new OliveOil(2),
         };
 
-        public void GetPrice()
+        public double GetPrice()
         {
+            double price = 0;
+
             foreach (var item in IngredientsList)
             {
-                Price += item.TotalPrice();
+                if (item.TotalPrice() == 0)
+                {
+                    throw new Exception("Price of this ingredient has not been set");
+                }
+                else
+                {
+                    price += item.TotalPrice();
+                }
+
             }
+
+            return Math.Round(price, 2);
         }
     }
 }

@@ -2,15 +2,14 @@
 using Epam_Task_3.Ingredients.SaucesAndPastes;
 using Epam_Task_3.Ingredients.Vegetables;
 using Epam_Task_3.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Epam_Task_3.Dishes.MeatDishes
 {
     internal class ChickenInSauce : IDish
     {
-        public double Price;
-
-        public List<IIngredient> IngredientsList => new List<IIngredient>()
+        public List<IIngredient> IngredientsList = new List<IIngredient>()
         {
             new ChickenFillet(500),
             new SoySauce(10),
@@ -22,12 +21,24 @@ namespace Epam_Task_3.Dishes.MeatDishes
             new Tomato(2),
         };
 
-        public void GetPrice()
+        public double GetPrice()
         {
+            double price = 0;
+
             foreach (var item in IngredientsList)
             {
-                Price += item.TotalPrice();
+                if (item.TotalPrice() == 0)
+                {
+                    throw new Exception("Price of this ingredient has not been set");
+                }
+                else
+                {
+                    price += item.TotalPrice();
+                }
+                
             }
+
+            return Math.Round(price, 2);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Epam_Task_3.Ingredients.SaucesAndPastes
         // Measured in tablespoons
         public int Quantity;
         // Tomato paste price per one liter
-        public double PricePerLiter;
+        public double PricePerLiter = 9.3;
         // Quantity tablespoon per one liter
         public static int TablespoonPerLiter = 67;
 

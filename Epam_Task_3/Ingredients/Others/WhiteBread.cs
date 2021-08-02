@@ -8,7 +8,7 @@ namespace Epam_Task_3.Ingredients
     internal class WhiteBread : IIngredient
     {
         public int QuantityPieces;
-        public double PricePerPiece;
+        public double PricePerPiece = 0.3;
 
         public WhiteBread(int quantityPieces)
         {

@@ -8,7 +8,7 @@ namespace Epam_Task_3.Ingredients.Vegetables
     internal class Tomato : IIngredient
     {
         public int Quantity;
-        public double PricePerPiece = 0.4;
+        public double PricePerPiece = 2.6;
 
         public Tomato(int quantity)
         {

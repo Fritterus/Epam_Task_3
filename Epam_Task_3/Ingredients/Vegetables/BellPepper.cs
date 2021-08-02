@@ -8,7 +8,7 @@ namespace Epam_Task_3.Ingredients.Vegetables
     internal class BellPepper : IIngredient
     {
         public int Quantity;
-        public double PricePerPiece;
+        public double PricePerPiece = 2.3;
 
         public BellPepper(int quantity)
         {
