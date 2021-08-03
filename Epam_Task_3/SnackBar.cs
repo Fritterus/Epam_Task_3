@@ -1,12 +1,8 @@
-﻿using Epam_Task_3.Dishes.MeatDishes;
-using Epam_Task_3.Dishes.Salads;
-using Epam_Task_3.Drinks;
-using Epam_Task_3.Interfaces;
+﻿using Epam_Task_3.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Epam_Task_3
 {
@@ -15,36 +11,66 @@ namespace Epam_Task_3
     /// </summary>
     internal class SnackBar
     {
-        private static ChickenInSauce _chickenInSauce = new ChickenInSauce();
-        private static CaesarSalad _caesarSalad = new CaesarSalad();
-        private static SaladWithPrawn _saladWithPrawn = new SaladWithPrawn();
-        private static DalgonCoffee _dalgonCoffee = new DalgonCoffee();
-        private static Mojito _mojito = new Mojito();
+        // Ingredients list
+        public List<string> Ingredients = new List<string>();
+        // Dishes list
+        public List<string> Dishes = new List<string>();
+        // Drinks list
+        public List<string> Drinks = new List<string>();
+
+        public IEnumerable<Type> IngredientTypes = Assembly.GetExecutingAssembly()
+            .GetTypes()
+            .Where(t => t.GetInterfaces().Contains(typeof(IIngredient)));
+
+        public IEnumerable<Type> DishTypes = Assembly.GetExecutingAssembly()
+            .GetTypes()
+            .Where(t => t.GetInterfaces().Contains(typeof(IDish)));
+
+        public IEnumerable<Type> DrinkTypes = Assembly.GetExecutingAssembly()
+            .GetTypes()
+            .Where(t => t.GetInterfaces().Contains(typeof(IDrink)));
 
         // Dictionary menu includes dishes, drinks and prices
-        public Dictionary<string, double> Menu = new Dictionary<string, double>();
+        public List<string> Menu = new List<string>();
 
-        public List<IDish> Dishes = new List<IDish>()
+        /// <summary>
+        /// Method for getting all dishes
+        /// </summary>
+        public List<string> GetAllDishes()
         {
-            _chickenInSauce,
-            _caesarSalad,
-            _saladWithPrawn,
-        };
-
-        public List<IDrink> Drinks = new List<IDrink>()
-        {
-            _dalgonCoffee,
-            _mojito,
-        };
-
-        public void MakeMenu()
-        {
-            foreach (var item in Dishes)
+            foreach (Type item in DishTypes)
             {
-                Menu.Add(item.GetType().Name, item.GetPrice());
+                Dishes.Add(item.Name);
             }
 
-            
+            return Dishes;
+        }
+
+        /// <summary>
+        /// Method for getting all drinks
+        /// </summary>
+        public List<string> GetAllDrinks()
+        {
+            foreach (Type item in DrinkTypes)
+            {
+                Drinks.Add(item.Name);
+            }
+
+            return Drinks;
+        }
+
+        /// <summary>
+        /// Method for getting all ingredients
+        /// </summary>
+        /// <returns>list of ingredients</returns>
+        public List<string> GetAllIngredients()
+        {
+            foreach (Type item in IngredientTypes)
+            {
+                Ingredients.Add(item.Name);
+            }
+
+            return Ingredients;
         }
     }
 }

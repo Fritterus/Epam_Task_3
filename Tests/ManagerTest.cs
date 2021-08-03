@@ -13,14 +13,19 @@ namespace Tests
         [TestCase("Accept")]
         public void Manager_WhenOrderIsAccept_ReturnAcceptOrder(string expectedResult)
         {
+            // Arrange
+            var client = new Client();
+            var clientId = client.Id;
             var dish = new ChickenInSauce();
             var drink = new Mojito();
-
-            var order = new Order(dish, drink);
+            var order = new Order(dish, drink, clientId);
             var manager = new Manager();
             manager.AcceptOrder(order);
 
+            // Act
             var result = order.Status;
+
+            // Assert
             Assert.AreEqual(result, expectedResult);
         }
     }

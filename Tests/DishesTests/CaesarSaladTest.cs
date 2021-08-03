@@ -13,25 +13,38 @@ namespace Tests.DishesTests
         [TestCase(7.61)]
         public void GetPrice_WhenExpectedIsMatch(double expectedResult)
         {
+            // Arrange
+
+            // Act
             var result = _caesarSalad.GetPrice();
 
+            // Assert
             Assert.AreEqual(result, expectedResult);
         }
 
         [TestCase(9.12)]
         public void GetPrice_WhenExpectedIsNotMatch(double expectedResult)
         {
+            // Arrange
+
+            // Act
             var result = _caesarSalad.GetPrice();
 
+            // Assert
             Assert.AreNotEqual(result, expectedResult);
         }
 
         [Test]
         public void GetPrice_WhenIngredientPriceEqualZero_ShouldReturnException()
         {
-            _caesarSalad.IngredientsList.Add(new Cucumber(0));
+            // Arrange
+            var cucumber = new Cucumber(0);
+            _caesarSalad.IngredientsList.Add(cucumber);
+
+            // Act
             Action result = () => _caesarSalad.GetPrice();
 
+            // Assert
             result.Should().Throw<Exception>().WithMessage("Price of this ingredient has not been set");
         }
 

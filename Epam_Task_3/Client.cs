@@ -11,15 +11,24 @@ namespace Epam_Task_3
     internal class Client : IClient
     {
         private static readonly SnackBar _snackBar = new SnackBar();
+        // Id counter
         private static int _nextId;
+        // Client Id
         public int Id { get; private set; }
 
+        /// <summary>
+        /// Constructor for initializes client parameter
+        /// </summary>
         public Client()
         {
             Id = Interlocked.Increment(ref _nextId);
         }
 
-        public Dictionary<string, double> ViewMenu()
+        /// <summary>
+        /// Method for viewing a menu
+        /// </summary>
+        /// <returns>Menu</returns>
+        public List<string> ViewMenu()
         {
             if (_snackBar.Menu.Count != 0)
             {
@@ -31,9 +40,16 @@ namespace Epam_Task_3
             }
         }
 
-        public Order MakeOrder(IDish dish, IDrink drink)
+        /// <summary>
+        /// Method for make order
+        /// </summary>
+        /// <param name="dish">dish</param>
+        /// <param name="drink">drink</param>
+        /// <param name="id">client id</param>
+        /// <returns>order</returns>
+        public Order MakeOrder(IDish dish, IDrink drink, int id)
         {
-            var order = new Order(dish, drink);
+            var order = new Order(dish, drink, id);
             return order;
         }
     }

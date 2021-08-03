@@ -30,35 +30,48 @@ namespace Tests
         [Test]
         public void Client_WhenClientIdIsCorrect_ShouldReturnCorrectId()
         {
+            // Arrange
             var client1 = new Client();
             var client2 = new Client();
             var client3 = new Client();
 
-            Assert.AreEqual(client1.Id, 1);
-            Assert.AreEqual(client2.Id, 2);
-            Assert.AreEqual(client3.Id, 3);
+            // Act
+            var id1 = client1.Id;
+            var id2 = client2.Id;
+            var id3 = client3.Id;
+
+            // Assert
+            Assert.AreEqual(id1, 1);
+            Assert.AreEqual(id2, 2);
+            Assert.AreEqual(id3, 3);
         }
 
         [Test]
         public void ViewMenu_WhenMenuCompiled_ShouldReturnCorrectMenu()
         {
-            var expected = _menu;
+            // Arrange
+            var expectedResult = _menu;
             var client = new Client();
-            var snackBar = new SnackBar();
+            var manager = new Manager();
+            manager.MakeMenu();
 
-            snackBar.MakeMenu();
-
+            // Act
             var result = client.ViewMenu();
 
-            result.Should().BeEquivalentTo(expected);
+            // Assert
+            result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Test]
         public void ViewMenu_WhenMenuNotCompiled_ShourldReturnException()
         {
+            // Arrange
             var client = new Client();
+
+            // Act
             Action result = () => client.ViewMenu();
 
+            // Assert
             result.Should().Throw<Exception>().WithMessage("Menu not compiled yet");
         }
     }
