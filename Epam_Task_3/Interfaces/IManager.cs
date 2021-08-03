@@ -6,6 +6,6 @@ namespace Epam_Task_3.Interfaces
 {
     internal interface IManager
     {
-        public void AcceptOrder(Client client, Order order);
+        public void AcceptOrder(Order order);
     }
 }

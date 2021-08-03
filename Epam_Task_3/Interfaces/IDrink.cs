@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Epam_Task_3.Interfaces
 {
-    internal interface IClient
+    internal interface IDrink
     {
-        public Order MakeOrder(IDish dish,  IDrink drink);
+        public double GetPrice();
     }
 }

@@ -21,12 +21,19 @@ namespace Epam_Task_3
 
         public Dictionary<string, double> ViewMenu()
         {
-            return _snackBar.Menu;
+            if (_snackBar.Menu.Count != 0)
+            {
+                return _snackBar.Menu;
+            }
+            else
+            {
+                throw new Exception("Menu not compiled yet");
+            }
         }
 
-        public Order MakeOrder(IDish dish)
+        public Order MakeOrder(IDish dish, IDrink drink)
         {
-            var order = new Order(dish);
+            var order = new Order(dish, drink);
             return order;
         }
     }
