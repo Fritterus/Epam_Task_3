@@ -7,7 +7,7 @@ namespace Epam_Task_3
 {
     internal class Manager : IManager
     {
-        public void AcceptOrder()
+        public void AcceptOrder(Client client, Order order)
         {
             throw new NotImplementedException();
         }

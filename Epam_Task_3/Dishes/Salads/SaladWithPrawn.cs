@@ -29,6 +29,19 @@ namespace Epam_Task_3.Dishes.Salads
         };
 
         /// <summary>
+        /// Field list of coocking method
+        /// </summary>
+        public List<string> CoockingMethod = new List<string>()
+        {
+            "1. Chop the vegetables coarsely, tear the salad into pieces..",
+            "2. Add shrimp.",
+            "3. After boiling, cook for 5 minutes.",
+            "4. Peel the shell of the shrimp.",
+            "5. Mix vegetables and shrimp.",
+            "6. Sprinkle with sesame seeds and season with mayonnaise."
+        };
+
+        /// <summary>
         /// Method for getting dish price
         /// </summary>
         /// <returns>full price of the dish</returns>

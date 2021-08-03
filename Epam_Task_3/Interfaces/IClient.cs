@@ -6,6 +6,6 @@ namespace Epam_Task_3.Interfaces
 {
     internal interface IClient
     {
-        public void MakeOrder();
+        public Order MakeOrder(IDish dish);
     }
 }

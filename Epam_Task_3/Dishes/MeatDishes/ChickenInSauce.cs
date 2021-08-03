@@ -28,6 +28,17 @@ namespace Epam_Task_3.Dishes.MeatDishes
         };
 
         /// <summary>
+        /// Field list of coocking method
+        /// </summary>
+        public List<string> CoockingMethod = new List<string>()
+        {
+            "1. Cut the chicken fillet into thin strips.",
+            "2. Mix vinegar, soy sauce, tomato paste.",
+            "3. Put on fire and warm up, adding some of the sugar.",
+            "4. Fry the chicken, combine with the sauce and simmer for another 10 minutes.",
+        };
+
+        /// <summary>
         /// Method for getting dish price
         /// </summary>
         /// <returns>full price of the dish</returns>

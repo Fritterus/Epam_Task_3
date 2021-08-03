@@ -24,6 +24,19 @@ namespace Epam_Task_3.Dishes.Salads
         };
 
         /// <summary>
+        /// Field list of coocking method
+        /// </summary>
+        public List<string> CoockingMethod = new List<string>()
+        {
+            "1. Wash, dry and cut the lettuce leaves into small pieces.",
+            "2. Put 1 tablespoon of butter in a hot skillet.",
+            "3. Cut the chicken breast into approximately 1x3 cm pieces.",
+            "4. Put in a frying pan with garlic and butter.",
+            "5. Fry over high heat for about 10 minutes until golden brown.",
+            "6. Get the lettuce leaves, put the fried chicken breast there."
+        };
+
+        /// <summary>
         /// Method for getting dish price
         /// </summary>
         /// <returns>full price of the dish</returns>
