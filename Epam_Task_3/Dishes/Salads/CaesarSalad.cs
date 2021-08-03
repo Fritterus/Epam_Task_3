@@ -36,6 +36,18 @@ namespace Epam_Task_3.Dishes.Salads
             "6. Get the lettuce leaves, put the fried chicken breast there."
         };
 
+        public override bool Equals(object obj)
+        {
+            return obj is CaesarSalad salad &&
+                   EqualityComparer<List<IIngredient>>.Default.Equals(IngredientsList, salad.IngredientsList) &&
+                   EqualityComparer<List<string>>.Default.Equals(CoockingMethod, salad.CoockingMethod);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(IngredientsList, CoockingMethod);
+        }
+
         /// <summary>
         /// Method for getting dish price
         /// </summary>
@@ -58,6 +70,11 @@ namespace Epam_Task_3.Dishes.Salads
             }
 
             return Math.Round(price, 2);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

@@ -52,5 +52,21 @@ namespace Epam_Task_3
             var order = new Order(dish, drink, id);
             return order;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Client client &&
+                   Id == client.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

@@ -35,5 +35,22 @@ namespace Epam_Task_3.Ingredients.SaucesAndPastes
             var totalPrice = Quantity * PricePerLiter / TablespoonPerLiter;
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is SoySauce sauce &&
+                   Quantity == sauce.Quantity &&
+                   PricePerLiter == sauce.PricePerLiter;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity, PricePerLiter);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

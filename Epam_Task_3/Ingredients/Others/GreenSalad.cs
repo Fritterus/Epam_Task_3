@@ -22,6 +22,23 @@ namespace Epam_Task_3.Ingredients
             Quantity = quantity;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is GreenSalad salad &&
+                   Quantity == salad.Quantity &&
+                   PricePerPiece == salad.PricePerPiece;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity, PricePerPiece);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         /// <summary>
         /// Method for getting ingredient total price
         /// </summary>

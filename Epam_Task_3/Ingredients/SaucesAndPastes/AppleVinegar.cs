@@ -33,5 +33,22 @@ namespace Epam_Task_3.Ingredients.SaucesAndPastes
             var totalPrice = Quantity * PricePerLiter / MillilterPerLiter;
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is AppleVinegar vinegar &&
+                   Quantity == vinegar.Quantity &&
+                   PricePerLiter == vinegar.PricePerLiter;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity, PricePerLiter);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

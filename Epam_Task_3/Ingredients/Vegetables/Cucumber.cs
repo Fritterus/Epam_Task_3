@@ -22,6 +22,23 @@ namespace Epam_Task_3.Ingredients.Vegetables
             Quantity = quantity;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Cucumber cucumber &&
+                   Quantity == cucumber.Quantity &&
+                   PricePerPiece == cucumber.PricePerPiece;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity, PricePerPiece);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         /// <summary>
         /// Method for getting ingredient total price
         /// </summary>

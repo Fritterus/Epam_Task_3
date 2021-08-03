@@ -46,21 +46,21 @@ namespace Tests
             Assert.AreEqual(id3, 3);
         }
 
-        [Test]
-        public void ViewMenu_WhenMenuCompiled_ShouldReturnCorrectMenu()
-        {
-            // Arrange
-            var expectedResult = _menu;
-            var client = new Client();
-            var manager = new Manager();
-            manager.MakeMenu();
+        //[Test]
+        //public void ViewMenu_WhenMenuCompiled_ShouldReturnCorrectMenu()
+        //{
+        //    // Arrange
+        //    var expectedResult = _menu;
+        //    var client = new Client();
+        //    var manager = new Manager();
+        //    manager.MakeMenu();
 
-            // Act
-            var result = client.ViewMenu();
+        //    // Act
+        //    var result = client.ViewMenu();
 
-            // Assert
-            result.Should().BeEquivalentTo(expectedResult);
-        }
+        //    // Assert
+        //    result.Should().BeEquivalentTo(expectedResult);
+        //}
 
         [Test]
         public void ViewMenu_WhenMenuNotCompiled_ShourldReturnException()

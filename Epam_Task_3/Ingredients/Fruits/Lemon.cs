@@ -33,5 +33,21 @@ namespace Epam_Task_3.Ingredients.Fruits
             var totalPrice = Quantity * PricePerPiece;
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Lemon lemon &&
+                   Quantity == lemon.Quantity;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

@@ -26,6 +26,24 @@ namespace Epam_Task_3.Ingredients.Others
             Quantity = quantity;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Milk milk &&
+                   Quantity == milk.Quantity &&
+                   PricePerLiter == milk.PricePerLiter &&
+                   MilliterPerLiter == milk.MilliterPerLiter;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity, PricePerLiter, MilliterPerLiter);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         /// <summary>
         /// Method for getting ingredient total price
         /// </summary>

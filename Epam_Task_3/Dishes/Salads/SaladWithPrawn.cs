@@ -41,6 +41,18 @@ namespace Epam_Task_3.Dishes.Salads
             "6. Sprinkle with sesame seeds and season with mayonnaise."
         };
 
+        public override bool Equals(object obj)
+        {
+            return obj is SaladWithPrawn prawn &&
+                   EqualityComparer<List<IIngredient>>.Default.Equals(IngredientsList, prawn.IngredientsList) &&
+                   EqualityComparer<List<string>>.Default.Equals(CoockingMethod, prawn.CoockingMethod);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(IngredientsList, CoockingMethod);
+        }
+
         /// <summary>
         /// Method for getting dish price
         /// </summary>
@@ -63,6 +75,11 @@ namespace Epam_Task_3.Dishes.Salads
             }
 
             return Math.Round(price, 2);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

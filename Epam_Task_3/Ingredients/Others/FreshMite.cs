@@ -23,6 +23,23 @@ namespace Epam_Task_3.Ingredients.Others
             Quantity = quantity;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is FreshMite mite &&
+                   Quantity == mite.Quantity &&
+                   PricePerPiece == mite.PricePerPiece;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity, PricePerPiece);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         /// <summary>
         /// Method for getting ingredient total price
         /// </summary>

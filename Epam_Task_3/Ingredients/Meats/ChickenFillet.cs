@@ -35,5 +35,22 @@ namespace Epam_Task_3.Ingredients
             var totalPrice = Weight * PricePerKg / GramPerKg;
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ChickenFillet fillet &&
+                   Weight == fillet.Weight &&
+                   PricePerKg == fillet.PricePerKg;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Weight, PricePerKg);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

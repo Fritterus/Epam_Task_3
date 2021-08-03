@@ -38,6 +38,18 @@ namespace Epam_Task_3.Dishes.MeatDishes
             "4. Fry the chicken, combine with the sauce and simmer for another 10 minutes.",
         };
 
+        public override bool Equals(object obj)
+        {
+            return obj is ChickenInSauce sauce &&
+                   EqualityComparer<List<IIngredient>>.Default.Equals(IngredientsList, sauce.IngredientsList) &&
+                   EqualityComparer<List<string>>.Default.Equals(CoockingMethod, sauce.CoockingMethod);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(IngredientsList, CoockingMethod);
+        }
+
         /// <summary>
         /// Method for getting dish price
         /// </summary>
@@ -60,6 +72,11 @@ namespace Epam_Task_3.Dishes.MeatDishes
             }
 
             return Math.Round(price, 2);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

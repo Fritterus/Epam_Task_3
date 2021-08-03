@@ -1,4 +1,6 @@
 ﻿using Epam_Task_3.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace Epam_Task_3
@@ -32,6 +34,27 @@ namespace Epam_Task_3
             Id = Interlocked.Increment(ref _nextId);
             Status = "Awaiting";
             Cost = dish.GetPrice() + drink.GetPrice();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Order order &&
+                   Id == order.Id &&
+                   Status == order.Status &&
+                   Cost == order.Cost &&
+                   ClientId == order.ClientId &&
+                   EqualityComparer<IDish>.Default.Equals(Dish, order.Dish) &&
+                   EqualityComparer<IDrink>.Default.Equals(Drink, order.Drink);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Status, Cost, ClientId, Dish, Drink);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

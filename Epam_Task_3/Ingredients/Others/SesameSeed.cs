@@ -32,5 +32,22 @@ namespace Epam_Task_3.Ingredients
             var totalPrice = Quantity * PricePerKg / TablespoonPerKg;
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is SesameSeed seed &&
+                   Quantity == seed.Quantity &&
+                   PricePerKg == seed.PricePerKg;
+        }
+
+        public override int GetHashCode()
+        {
+            return System.HashCode.Combine(Quantity, PricePerKg);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

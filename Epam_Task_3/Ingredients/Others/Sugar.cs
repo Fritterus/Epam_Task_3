@@ -35,5 +35,22 @@ namespace Epam_Task_3.Ingredients
             var totalPrice = Quantity * PricePerKg / TeaspoonPerKg;
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Sugar sugar &&
+                   Quantity == sugar.Quantity &&
+                   PricePerKg == sugar.PricePerKg;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity, PricePerKg);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

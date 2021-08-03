@@ -35,5 +35,21 @@ namespace Epam_Task_3
         {
             order.Status = "Accept";
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Manager manager &&
+                   EqualityComparer<SnackBar>.Default.Equals(_snackBar, manager._snackBar);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_snackBar);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

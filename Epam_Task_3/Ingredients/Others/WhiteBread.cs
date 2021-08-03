@@ -22,6 +22,23 @@ namespace Epam_Task_3.Ingredients
             QuantityPieces = quantityPieces;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is WhiteBread bread &&
+                   QuantityPieces == bread.QuantityPieces &&
+                   PricePerPiece == bread.PricePerPiece;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(QuantityPieces, PricePerPiece);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         /// <summary>
         /// Method for getting ingredient total price
         /// </summary>

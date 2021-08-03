@@ -31,6 +31,18 @@ namespace Epam_Task_3.Drinks
             "3. Stir until the drink is ready.",
         };
 
+        public override bool Equals(object obj)
+        {
+            return obj is DalgonCoffee coffee &&
+                   EqualityComparer<List<IIngredient>>.Default.Equals(IngredientsList, coffee.IngredientsList) &&
+                   EqualityComparer<List<string>>.Default.Equals(CoockingMethod, coffee.CoockingMethod);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(IngredientsList, CoockingMethod);
+        }
+
         /// <summary>
         /// Method for getting drink price
         /// </summary>
@@ -53,6 +65,11 @@ namespace Epam_Task_3.Drinks
             }
 
             return Math.Round(price, 2);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

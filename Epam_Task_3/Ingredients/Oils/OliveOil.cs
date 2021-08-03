@@ -35,5 +35,22 @@ namespace Epam_Task_3.Ingredients.Oils
             var totalPrice = Quantity * PricePerLiter / TablespoonPerLiter;
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is OliveOil oil &&
+                   Quantity == oil.Quantity &&
+                   PricePerLiter == oil.PricePerLiter;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Quantity, PricePerLiter);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

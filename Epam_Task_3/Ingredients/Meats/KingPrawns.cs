@@ -32,5 +32,22 @@ namespace Epam_Task_3.Ingredients.Meats
             var totalPrice = Quantity * PricePerKg / GramPerKg;
             return totalPrice;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is KingPrawns prawns &&
+                   Quantity == prawns.Quantity &&
+                   PricePerKg == prawns.PricePerKg;
+        }
+
+        public override int GetHashCode()
+        {
+            return System.HashCode.Combine(Quantity, PricePerKg);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

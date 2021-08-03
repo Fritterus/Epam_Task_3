@@ -19,5 +19,23 @@ namespace Epam_Task_3.Dishes
             _ingredientsList = ingredientsList;
             _coockingMethod = coockingMethod;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Dish dish &&
+                   _name == dish._name &&
+                   EqualityComparer<List<IIngredient>>.Default.Equals(_ingredientsList, dish._ingredientsList) &&
+                   EqualityComparer<List<string>>.Default.Equals(_coockingMethod, dish._coockingMethod);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_name, _ingredientsList, _coockingMethod);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
